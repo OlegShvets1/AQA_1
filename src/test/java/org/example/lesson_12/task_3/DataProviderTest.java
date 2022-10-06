@@ -5,6 +5,7 @@ package org.example.lesson_12.task_3;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class DataProviderTest {
 
@@ -20,8 +21,9 @@ public class DataProviderTest {
 
     @Test(dataProvider = "loginDataProvider")
     public void loginTest(String name, String email, String password) {
-        Assert.assertTrue(true, "Expected result is - False");
-        Assert.assertEquals(name, "User1", "Actual name "  + name + " and expected  name is different");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(true, "Expected result is - False");
+        softAssert.assertEquals(name, "User1", "Actual name "  + name + " and expected  name is different");
 
 
     }
