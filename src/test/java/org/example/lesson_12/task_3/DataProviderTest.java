@@ -24,7 +24,7 @@ public class DataProviderTest {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(true, "Expected result is - False");
         softAssert.assertEquals(name, "User1", "Actual name "  + name + " and expected  name is different");
-
+        softAssert.assertAll();
 
     }
 
