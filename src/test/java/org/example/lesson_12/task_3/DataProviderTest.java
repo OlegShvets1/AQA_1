@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class DataProvider {
+public class DataProviderTest {
 
 
     @DataProvider(name = "loginDataProvider")
