@@ -53,7 +53,7 @@ public class Registration_Negative_Tests {
     public void verifyErrorMessageIsShownIfEnterWrongEmail() throws InterruptedException {
 
         Assert.assertEquals(driver.findElement(By.xpath("//span[@data-valmsg-for='Email']")).getText(), EXPECTED_TEXT_1,
-                String.format("text should be displayed" + EXPECTED_TEXT_1));
+                String.format("%s text should be displayed", EXPECTED_TEXT_1));
     }
 
     @Test
@@ -66,7 +66,7 @@ public class Registration_Negative_Tests {
     public void verifyErrorMessageIsShownIfEnterWrongPassword() throws InterruptedException {
 
         Assert.assertEquals(driver.findElement(By.xpath("//*[text()='Password is required.']")).getText(), EXPECTED_TEXT_3,
-                String.format("text should be displayed" + EXPECTED_TEXT_3));
+                String.format("%s text should be displayed", EXPECTED_TEXT_3));
     }
 
     @AfterClass(alwaysRun = true)
