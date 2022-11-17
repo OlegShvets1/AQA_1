@@ -1,5 +1,6 @@
 package tests;
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -7,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 import pages.SigninPage;
 import java.lang.reflect.Method;
 
@@ -17,10 +19,8 @@ public class SigninTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://butlers.ua/ua/");
+        driver = WebDriverRunner.getWebDriver();
+       // driver.get("https://butlers.ua/ua/");
         signinPage = new SigninPage(driver);
 
     }
@@ -64,7 +64,6 @@ public class SigninTest {
 
     @AfterClass(alwaysRun = true)
     public void closeDriver() {
-        driver.close();
         driver.quit();
     }
 

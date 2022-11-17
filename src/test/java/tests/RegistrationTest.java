@@ -1,5 +1,6 @@
 package tests;
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,9 +21,7 @@ public class RegistrationTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = WebDriverRunner.getWebDriver();
         driver.get("https://butlers.ua/ua/");
         registrationPage = new RegistrationPage(driver);
 
@@ -56,7 +55,6 @@ public class RegistrationTest {
 
     @AfterClass(alwaysRun = true)
     public void closeDriver() {
-        driver.close();
         driver.quit();
     }
 

@@ -1,5 +1,6 @@
 package tests;
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,19 +24,17 @@ public class ProductsTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://butlers.ua/ua/");
+        driver = WebDriverRunner.getWebDriver();
+        //driver.get("https://butlers.ua/ua/");
         productsPage = new ProductsPage(driver);
         loginPage = new LoginPage(driver);
     }
 
-//    @BeforeMethod
-//    private void beforeMethodActions(Method method) throws InterruptedException {
-//        if (method.getName().equalsIgnoreCase("verifyCandleTitleWithExpectedData"))
-//            driver.navigate().to("https://butlers.ua/ua/");
-//    }
+    @BeforeMethod
+    private void beforeMethodActions(Method method) throws InterruptedException {
+        if (method.getName().equalsIgnoreCase("verifyCandleTitleWithExpectedData"))
+            driver.navigate().to("https://butlers.ua/ua/");
+    }
 
     @Test
     public void verifyCandleTitleWithExpectedData() throws InterruptedException {
@@ -57,7 +56,6 @@ public class ProductsTest {
 
     @AfterClass(alwaysRun = true)
     public void closeDriver() {
-        driver.close();
         driver.quit();
     }
 }
