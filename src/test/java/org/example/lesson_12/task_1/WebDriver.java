@@ -1,4 +1,4 @@
-package org.example.lesson_12.Task_1;
+package org.example.lesson_12.task_1;
 
 /*  Task_1.   Implement singleton patern for Webdriver*/
 

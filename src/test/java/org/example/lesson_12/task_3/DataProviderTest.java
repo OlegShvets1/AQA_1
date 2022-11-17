@@ -21,11 +21,10 @@ public class DataProviderTest {
 
     @Test(dataProvider = "loginDataProvider")
     public void loginTest(String name, String email, String password) {
-        Assert.assertEquals(name, "User1", "Actual name and expected  name is different");
-        Assert.assertEquals(email, "abc@gmail.com", "Actual e-mail and expected e-mail is different");
-        Assert.assertEquals(password, "12345678", "Actual password and expected password is different");
-        Assert.assertTrue(false);
-        Assert.assertTrue(true, "Expected result is - False");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(true, "Expected result is - False");
+        softAssert.assertEquals(name, "User1", "Actual name "  + name + " and expected  name is different");
+        softAssert.assertAll();
 
     }
 
