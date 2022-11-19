@@ -10,6 +10,7 @@
         <!--        </packages>-->
         <classes>
             <class name="tests.LoginTest"/>
-        </classes>
+            <class name="tests.SigninTest"/>
+            </classes>
     </test>
 </suite>
