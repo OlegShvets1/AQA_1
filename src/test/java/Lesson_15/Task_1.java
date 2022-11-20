@@ -2,6 +2,7 @@ package Lesson_15;
 
 /*  1 - Get rid of Thread.sleep() in your tests, use explicit waits instead.*/
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,10 +27,8 @@ public class Task_1 {
         @BeforeClass
         public void beforeClassActions() {
 
-            System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.navigate().to("https://butlers.ua/ua/");
+            driver = WebDriverRunner.getWebDriver();
+            driver.get("https://butlers.ua/ua/");
 
         }
 
@@ -51,11 +50,6 @@ public class Task_1 {
                     String.format("text should be displayed" + EXPECTED_TEXT));
             }
 
-        @AfterClass(alwaysRun = true)
-        public void closrDriver() {
-            driver.close();
-            driver.quit();
-        }
     }
 
 

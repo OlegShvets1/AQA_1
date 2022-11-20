@@ -61,10 +61,4 @@ public class SigninTest {
         Assert.assertTrue(signinPage.checkingXmasAppearanceOfSubmenu("Ялинкові іграшки"));
     }
 
-
-    @AfterClass(alwaysRun = true)
-    public void closeDriver() {
-        driver.quit();
-    }
-
 }

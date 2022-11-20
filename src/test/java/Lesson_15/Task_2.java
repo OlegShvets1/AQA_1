@@ -2,6 +2,7 @@ package Lesson_15;
 
 /*  2  - Write a test that verifies actual information about a Product. (Click on it, check title, description, etc) */
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,10 +33,8 @@ public class Task_2 {
         @BeforeClass
         public void beforeClassActions() {
 
-            System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.navigate().to("https://butlers.ua/ua/");
+            driver = WebDriverRunner.getWebDriver();
+            driver.get("https://butlers.ua/ua/");
             WebElement loginButton = new WebDriverWait(driver, Duration.ofSeconds(2))
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Вхід']")));
             loginButton.click();
@@ -64,11 +63,6 @@ public class Task_2 {
                     String.format("text should be displayed" + EXPECTED_TEXT_1));
         }
 
-        @AfterClass(alwaysRun = true)
-        public void closeDriver() {
-            driver.close();
-            driver.quit();
-        }
     }
 
 

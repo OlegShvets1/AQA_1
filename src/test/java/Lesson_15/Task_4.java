@@ -3,6 +3,7 @@ package Lesson_15;
 /* 4 - Add test, that adds a product to basket and verifies that error is present on the page when you add too
  much quantities of this product. */
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +26,8 @@ public class Task_4 {
     @BeforeClass
     public void beforeClassActions() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://butlers.ua/ua/");
+        driver = WebDriverRunner.getWebDriver();
+        driver.get("https://butlers.ua/ua/");
         WebElement loginButton = new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Вхід']")));
         loginButton.click();
@@ -65,9 +64,4 @@ public class Task_4 {
 
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closrDriver() {
-        driver.close();
-        driver.quit();
-    }
 }

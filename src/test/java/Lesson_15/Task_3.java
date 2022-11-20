@@ -2,6 +2,7 @@ package Lesson_15;
 
 /* 3 - Add tests that adds a product to basket and verifies that its added to the right place.*/
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,10 +25,8 @@ public class Task_3 {
     @BeforeClass
     public void beforeClassActions() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://butlers.ua/ua/");
+        driver = WebDriverRunner.getWebDriver();
+        driver.get("https://butlers.ua/ua/");
         WebElement loginButton = new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Вхід']")));
         loginButton.click();
@@ -59,11 +58,6 @@ public class Task_3 {
 
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closrDriver() {
-        driver.close();
-        driver.quit();
-    }
 }
 
 

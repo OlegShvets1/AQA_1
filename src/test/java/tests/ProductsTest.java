@@ -54,8 +54,4 @@ public class ProductsTest {
         Assert.assertTrue(productsPage.verifyPillowTitleWithExpectedData("Подушка PAREA 50х50 см. H:50 см. L:50 см. 10226676"));
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closeDriver() {
-        driver.quit();
-    }
 }

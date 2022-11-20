@@ -2,6 +2,7 @@ package Lesson_14.Task_1;
 
 /*  1 - зробити 3 негативних тести на формі реєстрації*/
 
+import driver.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,10 +24,8 @@ public class Registration_Negative_Tests {
     @BeforeClass
     public void beforeClassActions() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriwer\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://butlers.ua/ua/");
+        driver = WebDriverRunner.getWebDriver();
+        driver.get("https://butlers.ua/ua/");
         Thread.sleep(1000);
         WebElement loginButton = driver.findElement(By.xpath("//*[@class = 'ico-login']"));
         loginButton.click();
@@ -69,9 +68,6 @@ public class Registration_Negative_Tests {
                 String.format("%s text should be displayed", EXPECTED_TEXT_3));
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closeDriver1() {
-        driver.close();}
 
 }
 

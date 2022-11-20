@@ -53,9 +53,4 @@ public class RegistrationTest {
         Assert.assertTrue(registrationPage.errorEmailMassageShown("Електронна пошта обов'язкова."));
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closeDriver() {
-        driver.quit();
-    }
-
 }
