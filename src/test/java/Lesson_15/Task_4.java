@@ -42,10 +42,10 @@ public class Task_4 {
         WebElement newButton = driver.findElement(By.xpath("//a[@href='/ua/all'][1]"));
         newButton.click();
         WebElement product = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-productid='8567' ]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-productid='8654' ]")));
         product.click();
         WebElement buttonAddToBasket = new WebDriverWait(driver, Duration.ofSeconds(2))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='add-to-cart-button-8567']")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='add-to-cart-button-8654']")));
         buttonAddToBasket.click();
         WebElement basket = new WebDriverWait(driver, Duration.ofSeconds(6))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Кошик для покупок']")));
@@ -59,8 +59,8 @@ public class Task_4 {
         WebElement fieldOfQuantityOfProducts = driver.findElement(By.xpath("//*[@class='qty-input']"));
         fieldOfQuantityOfProducts.click();
         fieldOfQuantityOfProducts.clear();
-        fieldOfQuantityOfProducts.sendKeys("10", Keys.ENTER);
-        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Максимальна кількість для покупки: 5.']")).isDisplayed());
+        fieldOfQuantityOfProducts.sendKeys("100", Keys.ENTER);
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@class='message-error']")).isDisplayed(),String.format("%s text should be displayed", "Максимальна кількість для покупки: 12."));
 
     }
 

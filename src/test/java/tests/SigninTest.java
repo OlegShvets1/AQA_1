@@ -20,7 +20,6 @@ public class SigninTest {
     @BeforeClass(alwaysRun = true)
     public void setupTest() {
         driver = WebDriverRunner.getWebDriver();
-       // driver.get("https://butlers.ua/ua/");
         signinPage = new SigninPage(driver);
 
     }

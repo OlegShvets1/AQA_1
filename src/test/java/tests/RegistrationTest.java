@@ -26,25 +26,32 @@ public class RegistrationTest {
         registrationPage = new RegistrationPage(driver);
 
     }
-
     @BeforeMethod
     private void beforeMethodActions(Method method) {
-        WebElement loginButton = driver.findElement(By.xpath("//*[@class = 'ico-login']"));
-        loginButton.click();
-        WebElement registrationButton = driver.findElement(By.xpath("//*[@value = 'Зареєструватися']"));
-        registrationButton.click();
+        if (method.getName().equalsIgnoreCase("checkingForIncorrectInputName"))
+            driver.navigate().to("https://butlers.ua/ua/register?returnUrl=%2Fua%2F");
     }
-
     @Test
     public void checkingForIncorrectInputName() throws InterruptedException {
     registrationPage.enterWithNoName();
         Assert.assertTrue(registrationPage.errorNameMassageShown("Ім'я обов'язкове."));
     }
 
+    @BeforeMethod
+    private void beforeMethodActions1(Method method) {
+        if (method.getName().equalsIgnoreCase("checkingForIncorrectInputLastName"))
+            driver.navigate().to("https://butlers.ua/ua/register?returnUrl=%2Fua%2F");
+    }
     @Test
     public void checkingForIncorrectInputLastName() throws InterruptedException {
         registrationPage.enterWithNoLastName();
         Assert.assertTrue(registrationPage.errorLastNameMassageShown("Прізвище обов'язкове."));
+    }
+
+    @BeforeMethod
+    private void beforeMethodActions2(Method method) {
+        if (method.getName().equalsIgnoreCase("checkingForIncorrectInputEmail"))
+            driver.navigate().to("https://butlers.ua/ua/register?returnUrl=%2Fua%2F");
     }
 
     @Test

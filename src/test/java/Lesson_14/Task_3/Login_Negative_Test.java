@@ -7,12 +7,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
 
 public class Login_Negative_Test {
 
@@ -30,10 +34,9 @@ public class Login_Negative_Test {
 
     @Test
     public void loginWithWrongEmail() throws InterruptedException {
-
-        WebElement loginButton = driver.findElement(By.xpath("//*[@class = 'ico-login']"));
-        Thread.sleep(2000);
-        loginButton.click();
+        WebElement loginButton = new WebDriverWait(driver, Duration.ofSeconds(2))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class = 'ico-login']")));
+         loginButton.click();
 
 
         WebElement usernameField = driver.findElement(By.xpath("//div[@class='inputs']/input[@type='email']"));
@@ -45,8 +48,7 @@ public class Login_Negative_Test {
         passwordField.sendKeys("12345678");
         submitButton.click();
         Thread.sleep(2000);
-
-        Assert.assertFalse(false,"Expected result - is false");
+        Assert.assertTrue(driver.findElement(By.xpath("//a[@class='ico-login']")).isDisplayed());
 
     }
 

@@ -41,20 +41,20 @@ public class Task_3 {
         WebElement newButton = driver.findElement(By.xpath("//a[@href='/ua/all'][1]"));
         newButton.click();
         WebElement product = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-productid='8567' ]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-productid='8670']")));
         product.click();
         WebElement buttonAddToBucket = new WebDriverWait(driver, Duration.ofSeconds(2))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='add-to-cart-button-8567']")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='add-to-cart-button-8670']")));
         buttonAddToBucket.click();
     }
 
     @Test
     public void verificationOfAddingTheProductToTheRightPlace() throws InterruptedException {
-        WebElement basket = new WebDriverWait(driver, Duration.ofSeconds(6))
+        WebElement basket = new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Кошик для покупок']")));
         basket.click();
 
-        Assert.assertTrue(driver.findElement(By.xpath("//td[@class='product']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//td[@class='product']")).isDisplayed(), String.format("%s text should be displayed", "The product has not been added to the cart"));
 
     }
 

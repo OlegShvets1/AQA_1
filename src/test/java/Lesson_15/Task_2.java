@@ -58,9 +58,9 @@ public class Task_2 {
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-productid='8567' ]")));
          product.click();
          Assert.assertEquals(driver.findElement(By.xpath("//h1[@itemprop='name']")).getText(), EXPECTED_TEXT,
-                    String.format("text should be displayed" + EXPECTED_TEXT));
+                    String.format("%s text should be displayed", EXPECTED_TEXT));
          Assert.assertEquals(driver.findElement(By.xpath("//div[@class='full-description']")).getText(), EXPECTED_TEXT_1,
-                    String.format("text should be displayed" + EXPECTED_TEXT_1));
+                    String.format("%s text should be displayed", EXPECTED_TEXT_1));
         }
 
     }

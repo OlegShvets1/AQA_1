@@ -18,10 +18,11 @@ public class LoginTest {
 
     private LoginPage loginPage;
 
+
     @BeforeClass(alwaysRun = true)
     public void setupTest() {
 
-           driver = WebDriverRunner.getWebDriver();
+        driver = WebDriverRunner.getWebDriver();
         driver.get("https://butlers.ua/ua/");
         loginPage = new LoginPage(driver);
     }

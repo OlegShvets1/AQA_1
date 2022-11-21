@@ -47,10 +47,10 @@ public class Login_Positive_Test {
         passwordField.sendKeys("12345678");
         submittButton.click();
         Thread.sleep(3000);
-        Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Персональний кабінет']")).getText(), EXPECTED_TEXT,
+        softAssert.assertEquals(driver.findElement(By.xpath("//a[text()='Персональний кабінет']")).getText(), EXPECTED_TEXT,
                 String.format("%s text should be displayed", EXPECTED_TEXT));
 
-        Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Персональний кабінет']")).isDisplayed());
+        softAssert.assertTrue(driver.findElement(By.xpath("//a[text()='Персональний кабінет']")).isDisplayed());
 
 
        }
